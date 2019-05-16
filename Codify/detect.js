@@ -6,7 +6,6 @@ if (typeof browser === "undefined")
 // Currently developing.
 // Add a button above the detected code.
 // The button changes browser.storage when clicked so the extension can use it.
-
 function addRunButton(codeNumber) {
         var btnLoc = document.getElementById("codify-c-code-" + codeNumber);
         var runBtn = document.createElement('button');
@@ -110,15 +109,11 @@ function detectC() {
             range.setStartBefore(textNodes[beginIdx].parentNode);
             range.setEndAfter(textNodes[i].parentNode);
             range.surroundContents(codeElement);
-        }
-    }
 
-    console.log(codeNumber);
-    for(var i = 1; i < codeNumber + 1; i++) {
-        addRunButton(i);
-        //autoHighlight(document);
-    }
-    
+            addRunButton(codeNumber);
+            //autoHighlight(codeNumber);
+        }
+    }    
 }
 
 // Detect C code.
